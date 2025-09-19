@@ -1,0 +1,49 @@
+/* Page reset + layout */
+:root { --bg:#0b0b10; --text:#eaf0ff; --muted:#b8b8c6; --brand:#5b8cff; }
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.4 system-ui, Segoe UI, Inter, Roboto, sans-serif; }
+
+/* Background layer helper */
+.bg-grid { position: fixed; inset: 0; z-index: 0; }
+
+/* 👇 make the app a flex column so footer sticks to bottom */
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* 👇 main content grows and pushes footer down */
+.content { flex: 1; }
+
+/* Basic page spacing */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* Simple navbar/footer styling */
+.nav { position: sticky; top: 0; backdrop-filter: blur(10px);
+       background: rgba(20,22,32,.6); border-bottom: 1px solid rgba(255,255,255,.06); z-index: 10; }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+.brand { font-weight: 800; letter-spacing:.3px; }
+.nav-links { display:flex; gap:18px; }
+.nav-links a { color: inherit; text-decoration: none; opacity:.85; }
+.nav-links a:hover { opacity: 1; }
+
+.footer { padding: 24px 0; color: var(--muted); text-align: center;
+          border-top: 1px solid rgba(255,255,255,.06); background: rgba(20,22,32,.5); }
+
+/* Home hero/cards (placeholder) */
+.hero { padding: 72px 0 24px; }
+.hero h1 { margin: 0 0 10px; font-size: 44px; line-height: 1.1; }
+.hero p  { margin: 0; color: var(--muted); }
+.cards { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 28px 0 40px; }
+.card { background: #121622; border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 22px; }
+.card h3 { margin: 0 0 8px; }
+@media (max-width: 980px){ .cards{ grid-template-columns:1fr 1fr; } }
+@media (max-width: 640px){ .cards{ grid-template-columns:1fr; } }
+
+.hero h1.split-parent {
+  letter-spacing: .3px;
+  font-weight: 800;
+}

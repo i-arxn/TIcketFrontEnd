@@ -1,0 +1,30 @@
+.circular-text {
+  position: fixed;
+  right: 160px;       /* move inward */
+  top: 195px;         /* below navbar */
+  transform: translateX(50%);  /* shift circle so it’s centered */
+  width: 2px;
+  height: 2px;
+
+  color: var(--text);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: .10em;
+
+  z-index: 2;
+  user-select: none;
+}
+
+.circular-text span{
+  position: absolute;
+  left: 50%; top: 50%;
+  transform-origin: 0 0;
+}
+
+/* optional responsive tweaks */
+@media (min-width: 1280px){
+  .circular-text{ font-size: 20px; } /* a touch bigger on large screens */
+}
+@media (max-width: 900px){
+  .circular-text{ display: none; }   /* hide on small screens */
+}
